@@ -24,8 +24,8 @@
         <li>
             <a href="#">Gestion de Ventas￬</a>
             <ul class="submenu">
-                <li><a href="clientes/clientes.html">Clientes</a></li>
-                <li><a href="ventas/ventas.html">Ventas</a></li>
+                <li><a href="../clientes/clientes.html">Clientes</a></li>
+                <li><a href="../ventas/ventas.html">Ventas</a></li>
                 <!--
                 <li><a href="#"></a></li>
                 <li><a href="#">Illustration</a></li>
@@ -35,7 +35,17 @@
         <li>
             <a href="#">Administracion de Catalogo ￬</a>
             <ul class="submenu">
-                <li><a href="productos/productos.html">Productos</a></li>
+                <li><a href="../productos/productos.html">Productos</a></li>
+                <!--
+                <li><a href="#"></a></li>
+                <li><a href="#">Illustration</a></li>
+                -->
+            </ul>
+        </li>
+        <li>
+            <a href="#">Contactos ￬</a>
+            <ul class="submenu">
+                <li><a href="../contactos/contacto.html">Contacto</a></li>
                 <!--
                 <li><a href="#"></a></li>
                 <li><a href="#">Illustration</a></li>
@@ -52,7 +62,32 @@
             <h1>Euskalikea Corporation</h1>
         </header>
         <main id ="page-body">
-            Bienvenido a la aplicación de Sergio para la venta de muebles.
+            <a title="crear" href=""#>Crear uno nuevo</a>
+            <a title="borrar" href=""#>Borrar Producto</a>
+            <section id="listadoProductos">
+                <header><h2>Listado Productos</h2></header>
+                <table id="tablaProductos">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox" name="borrartodos" id="borrartodos"/></th>
+                        <th>Nombre</th>
+                        <th>Referencia</th>
+                        <th>Descripcion</th>
+                        <th>Color</th>
+                        <th>Precio</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="2"></td>
+                    </tr>
+                    </tfoot>
+
+                </table>
+            </section>
         </main>
         <footer id="page-footer">
             <a href="http://formacion.ipartek.com" target="_blank">Ipartek S. Coop.</a>
@@ -61,7 +96,7 @@
 </div>
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+<script src="../js/plugins.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>

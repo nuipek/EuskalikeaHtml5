@@ -1,24 +1,44 @@
-var producto1 = [];
-producto.nombre = "Mesa camilla";
-producto.referencia="1-12345";
-var producto2=[];
-producto3.nombre = "Cama";
-producto3.referencia="1-12346";
-var producto3 = [];
+var producto1 = {};
+producto1.nombre = "Mesa camilla";
+producto1.referencia="1-12345";
+producto1.precio=25.5;
+producto1.descripcion="Mesa camilla enorme";
+producto1.color = "blanco";
+
+var producto2={};
+producto2.nombre = "Cama";
+producto2.referencia="1-12346";
+producto2.precio=364.5;
+producto2.descripcion="cama doble";
+producto2.color = "rojo";
+var producto3 ={};
 producto3.nombre = "Silla";
 producto3.referencia="1-12347";
+producto3.precio=87.5;
+producto3.descripcion="Silla Fashion";
+producto3.color = "verde";
 
 var productos = [producto1,producto2,producto3];
 
 $.noConflict();
 jQuery(document).ready(function($) {
     $("#contactForm").on("submit",validarFormularioContacto);
-
+    cargarArray();
 
 
 
 /* En esta seccion declaramos las funciones que utilizar jQuery */
     $("#borrartodos").click(function(event){
+
+        if($(this).is(":checked")){
+            $("tbody input[type=checkbox]").prop("checked",true);
+            //
+            //checked = checked
+            //selected= selected
+            //
+        }else{
+            $("tbody input[type=checkbox]").prop("checked",false);
+        }
 
     }); // asi definimos una funcion anonima
 
@@ -63,6 +83,26 @@ jQuery(document).ready(function($) {
         }
         return false;
     }
+    function cargarArray(){
+        if(productos.length > 0){
+            for(i=0;i<productos.length;i++){
+                var producto = productos[i];
+                // añadir el html correspondiente a la pagina
+                // --><tr><td>------</td><td>----</td>.....</tr>
+                console.log(productos[i]);
+                var texto = "<tr><td><input type='checkbox' value='" + i + "'></td><td>" + producto.nombre + "</td><td>" + producto.referencia + "</td><td>" + producto.descripcion + "</td><td>" + producto.color + "</td><td>" + producto.precio + "</td></tr>";
+                $("#tablaProductos tbody").append(texto);
+            }
+
+            $("#tablaProductos tfoot td").html("<span class='text-error'>Total Productos:" + parseInt(productos.length,10) + "</span>");
+        }
+        else
+        {
+            $("#tablaProductos").remove();
+            $("#listadoProductos").text("No hay registros en el Array");
+        }
+    }
+
 });
 
 /* Aqui van declaradas las funciones que no utilizan jQuery */
