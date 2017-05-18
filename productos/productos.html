@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
 
-    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../src/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
 <nav>
@@ -62,10 +62,12 @@
             <h1>Euskalikea Corporation</h1>
         </header>
         <main id ="page-body">
-            <a title="crear" href=""#>Crear uno nuevo</a>
-            <a title="borrar" href=""#>Borrar Producto</a>
             <section id="listadoProductos">
                 <header><h2>Listado Productos</h2></header>
+                <div>
+                    <a title="crear" href=""#>Crear uno nuevo</a>
+                    <a title="borrar" href=""#>Borrar Producto</a>
+                </div>
                 <table id="tablaProductos">
                     <thead>
                     <tr>
@@ -94,9 +96,6 @@
         </footer>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-<script src="../js/plugins.js"></script>
-<script src="../js/main.js"></script>
+<script src="../dist/js/all-min.js"></script>
 </body>
 </html>

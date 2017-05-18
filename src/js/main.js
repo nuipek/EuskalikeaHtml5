@@ -1,3 +1,17 @@
+
+import $ from 'jquery';
+// export for others scripts to use
+window.$ = $;
+window.jQuery = window.$;
+/*
+import $ from "jquery";
+window.jQuery = window.$ = $;
+*/
+//var $ = require('jquery');
+//require("bootstrap");
+
+//$.noConflict();
+
 var producto1 = {};
 producto1.nombre = "Mesa camilla";
 producto1.referencia="1-12345";
@@ -21,11 +35,12 @@ producto3.color = "verde";
 var productos = [producto1,producto2,producto3];
 
 $.noConflict();
-jQuery(document).ready(function($) {
-    $("#contactForm").on("submit",validarFormularioContacto);
+$(document).ready(function($) {
     cargarArray();
+    $("#contactForm").on("submit",validarFormularioContacto);
+    
 
-
+    $("#listadoProductos div a:last-child").click(borrarMarcados);
 
 /* En esta seccion declaramos las funciones que utilizar jQuery */
     $("#borrartodos").click(function(event){
@@ -85,7 +100,7 @@ jQuery(document).ready(function($) {
     }
     function cargarArray(){
         if(productos.length > 0){
-            for(i=0;i<productos.length;i++){
+            for(var i=0;i<productos.length;i++){
                 var producto = productos[i];
                 // añadir el html correspondiente a la pagina
                 // --><tr><td>------</td><td>----</td>.....</tr>
@@ -103,9 +118,26 @@ jQuery(document).ready(function($) {
         }
     }
 
+
+
+    function borrarMarcados(){
+        // recoger los checkboxes marcados
+        $("#tablaProductos tbody input[type=checkbox]:checked").each(function(){
+         var codigo = $(this).val();
+         // Llamar al REST
+         $(this).parents("tr").remove();
+         });
+        $("#tablaProductos  tfoot td span").remove();
+        $("#tablaProductos tfoot td").html("<span class='text-error'>Total Productos:"+ $("tbody tr").length,10+"</span>");
+    }
+
+
 });
 
 /* Aqui van declaradas las funciones que no utilizan jQuery */
+
+
+
 
 function validarDni(dni) {
     var valido =true;
